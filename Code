@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Substring {
+
+    public static void main(String[] args)throws IOException {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        String s=br.readLine();
+        char a[]=s.toCharArray();
+        int co=0,t=0;
+        List<Character> c=new ArrayList<Character>();
+        for(int i=0;i<a.length;i++)
+        {
+            if(!c.contains(a[i]))
+            {
+                c.add(a[i]);
+                co++;
+            }
+            else
+            {
+                if(t<co)
+                    t=co;
+                co=0;
+                c.clear();
+                c.add(a[i]);
+                co++;
+            }
+            if(t<co)
+                    t=co;
+        }
+        System.out.println(t);
+        
+        
+        
+    }
+}
